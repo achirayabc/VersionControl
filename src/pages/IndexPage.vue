@@ -8,26 +8,42 @@
       <q-input
         filled
         v-model="name"
+
         label="=ชื่อ *"
         hint="Name and surname"
         lazy-rules
         :rules="[ val => val && val.length > 0 || 'กรุณาใส่ชื่อที่ถูกต้องของคุณ']"
+
+        label="ชื่อ-สกุลของคุณ *"
+        hint="ชื่อและนามสกุล"
+        lazy-rules
+        :rules="[ val => val && val.length > 0 || 'กรุณาพิมพ์ชื่อ']"
+
       />
       <q-input
         filled
         type="number"
+
         v-model="age"
         label="อายุ: *"
         lazy-rules
         :rules="[
           val => val !== null && val !== '' || 'กรุณาพิมพ์อายุของคุณoo',
           val => val > 0 && val < 100 || 'กรุณาพิมพ์อายุที่ถูกต้องot'
+
+        v-model="อายุ"
+        label="อายุ*"
+        lazy-rules
+        :rules="[
+          val => val !== null && val !== '' || 'กรุณาใส่อายุของคุณ',
+          val => val > 0 && val < 100 || 'กรุณาใส่อายุจริง'
+
         ]"
       />
-      <q-toggle v-model="accept" label="I accept the license and terms" />
+      <q-toggle v-model="accept" label="ยอมรับ" />
       <div>
-        <q-btn label="Submit" type="submit" color="primary"/>
-        <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
+        <q-btn label="ยอมรับ" type="submit" color="primary"/>
+        <q-btn label="ยกเลิก" type="reset" color="primary" flat class="q-ml-sm" />
       </div>
     </q-form>
   </div>
